@@ -19,11 +19,14 @@
       const action = params.get("action");
 
       let webHookUrl;
+      let message="";
       //2 webhooks for 2 case(when manager clicks on accept/reject)
       if (action === "approve") {
+        message = "approved by you";
         webHookUrl =
           "https://hook.eu1.make.com/lat7xh0ty0tyv14wwpxhpqumqiyayla8";
       } else {
+        message = "rejected by you"
         webHookUrl =
           "https://hook.eu1.make.com/f0yzx5nemaug7pajhtnhvejq34l3lzsq";
       }
@@ -48,7 +51,7 @@
           });
 
           document.body.innerHTML = `<div style="font-family:sans-serif;text-align:center;padding-top:50px;background:white;color:black;">
-   <h2> Leave approved </h2>
+   <h2> Leave ${message} </h2>
    <p>You can now close this tab</p>
 </div>`;
         });
